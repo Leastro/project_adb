@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,48 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+
+/*사용 폰트 저장*/
+@font-face {
+  font-family: 'NotoSansKR-Black';
+  src: url(../public/resorces/font/NotoSansKR-Black.ttf);
+}
+@font-face {
+  font-family: 'NotoSansKR-Bold';
+  src: url(../public/resorces/font/NotoSansKR-Bold.ttf);
+}
+@font-face {
+  font-family: 'NotoSansKR-ExtraBold';
+  src: url(../public/resorces/font/NotoSansKR-ExtraBold.ttf);
+}
+@font-face {
+  font-family: 'NotoSansKR-ExtraLight';
+  src: url(../public/resorces/font/NotoSansKR-ExtraLight.ttf);
+}
+@font-face {
+  font-family: 'NotoSansKR-Light';
+  src: url(../public/resorces/font/NotoSansKR-Light.ttf);
+}
+@font-face {
+  font-family: 'NotoSansKR-Medium';
+  src: url(../public/resorces/font/NotoSansKR-Medium.ttf);
+}
+@font-face {
+  font-family: 'NotoSansKR-Regular';
+  src: url(../public/resorces/font/NotoSansKR-Regular.ttf);
+}
+@font-face {
+  font-family: 'NotoSansKR-SemiBold';
+  src: url(../public/resorces/font/NotoSansKR-SemiBold.ttf);
+}
+@font-face {
+  font-family: 'NotoSansKR-Thin';
+  src: url(../public/resorces/font/NotoSansKR-Thin.ttf);
+}
+
+@font-face {
+  font-family: 'NeurimboGothic';
+  src: url(../public/resorces/font/neurimboGothicRegular.otf);
 }

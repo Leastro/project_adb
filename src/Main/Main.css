@@ -1,0 +1,105 @@
+/* p기본의 마진들 전부 없는 걸로 처리 */
+p {margin: 0;}
+
+/* 헤더 */
+#container_head {
+    display: flex;
+     flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    height:25vh;
+    background-color: #97dbae7d;
+}
+.title {
+    font-family: 'NeurimboGothic';
+    font-size: 50px;
+    text-align: center;
+    white-space: pre-wrap;
+    font-weight: 600;
+}
+
+/* 중간 소개 */
+.container_body {
+    margin-top: 1%;
+    margin-left: 5%;
+}
+.subtitle {
+    font-family: 'NeurimboGothic';
+    font-size: 35px;
+    padding: 10px;
+    width: 93%;
+    background: #f1e1a6;
+    border: #ffff 5px solid;
+    border-left: none;
+    filter: drop-shadow(15px 15px 0px #f4bbbb);
+    margin: 2.5% 0;
+}
+
+.description {
+    font-size: 20px;
+}
+
+.radius_15 {
+    border-radius: 15px;
+}
+
+#midle_img {
+    display: block;
+    width: 96%;
+    margin-top: 10px;
+}
+
+#midle_img>img {
+    width:100%;
+    filter: drop-shadow(10px 10px 0px #c3e5ae); 
+}
+
+.detail_source {
+    color: gray;
+    font-size: 10px;
+    display: block;
+    text-align: right;
+    padding-top: 5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-use-select: none;
+    user-select: none;
+}
+
+/* 보호소 목록 */
+.direction {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 100%;
+}
+
+.direction>img {
+    width:100%;
+}
+
+.shlter_list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    list-style: none;
+}
+
+.list_card {
+    width: 33.3%;
+    background: white;
+    filter: drop-shadow(10px 10px 0px #c3e5ae);
+    padding: 2.5%;
+    margin: 0 2%;
+}
+
+.list_card_img>img {
+    width:100%;
+}
+
+/* 하단 */
+#container_footer {
+    display: flex;
+    justify-content: center;
+}
