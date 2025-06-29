@@ -1,6 +1,12 @@
 /* p기본의 마진들 전부 없는 걸로 처리 */
 p {margin: 0;}
 
+/* 공통? */
+.font_20 { font-size: 20px;}
+.font_25_vw { font-size: 2.5vw;}
+.font_bold { font-weight: bold;}
+.per_50_w { width: 50%;}
+
 /* 헤더 */
 #container_head {
     display: flex;
@@ -23,11 +29,22 @@ p {margin: 0;}
     margin-top: 1%;
     margin-left: 5%;
 }
+
+.row_flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.column_flex {
+    display: flex;
+    flex-direction: column;
+}
+
 .subtitle {
     font-family: 'NeurimboGothic';
     font-size: 35px;
     padding: 10px;
-    width: 93%;
+    width: 95%;
     background: #f1e1a6;
     border: #ffff 5px solid;
     border-left: none;
@@ -36,7 +53,9 @@ p {margin: 0;}
 }
 
 .description {
-    font-size: 20px;
+    padding-left: 5%;
+    padding-bottom: 2%;
+    white-space: pre-wrap;
 }
 
 .radius_15 {
@@ -45,7 +64,7 @@ p {margin: 0;}
 
 #midle_img {
     display: block;
-    width: 96%;
+    width: 50%;
     margin-top: 10px;
 }
 
@@ -78,12 +97,14 @@ p {margin: 0;}
     width:100%;
 }
 
-.shlter_list {
+.shelter_list {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
     list-style: none;
+    padding-left: 0;
+    width: 98%;
 }
 
 .list_card {
@@ -92,6 +113,9 @@ p {margin: 0;}
     filter: drop-shadow(10px 10px 0px #c3e5ae);
     padding: 2.5%;
     margin: 0 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .list_card_img>img {
