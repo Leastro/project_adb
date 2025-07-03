@@ -1,7 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Main.css"
+import { useNavigate } from "react-router-dom";
+import { db } from '../firebase.js';
+import { collection, onSnapshot  } from "firebase/firestore";
+import ShelterList from "../components/Shelter_list.jsx"
 
-function Main(){ //컴포넌트
+function Main(){
+  const navigate = useNavigate();
+  const [shelters, setShelters] = useState([]);
+  const [loading, setLoading] = useState(true); //DB호출 완료 체크
+
+  useEffect(() => {
+    const shelterList = collection(db, 'shelter');
+
+    const unsubscribe = onSnapshot(
+      shelterList,
+      (snapshot) => {
+        const shelterData = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setShelters(shelterData);
+        setLoading(false);
+      },
+      (error) => {
+        console.error("실시간 데이터 수신 중 오류:", error);
+        setLoading(false);
+      }
+    );
+
+    return () => unsubscribe(); // 컴포넌트 언마운트 시 리스너 제거
+  }, []);
+
   return (
     <div className="mainWrapper">
         <div id="container_head">
@@ -23,44 +53,50 @@ function Main(){ //컴포넌트
             </span>
             <div className="column_flex per_50_w">
               <p className="description font_25_vw font_bold">{`모든 동물들은 사랑받을 권리가 있습니다.`}</p>
-              <p className="description font_20">{`이러한 권리를 위해 가족을 찾는 유기동물들을 보호하는\n개인,중소규모 유기동물보호소를 소개합니다.`}</p>
+              <p className="description font_20">{`이러한 권리를 위해 가족을 찾는 유기동물들을 보호하는\n개인, 중·소규모 유기동물보호소를 소개합니다.`}</p>
             </div>
           </div>
         </div>
 
         <div className="container_body">
           <div className="subtitle radius_15">등록되어 있는 보호소<span role="img" aria-label="house">🏡</span></div>
-          <div className="shelter_list">
-            <a className="direction">
-              <img src="../resources/image/left-arrow.png" alt="왼쪽이동"/>
-            </a>
-            
-            <ul className="shelter_list">
-              <li className="radius_15 list_card">
-                <a className="list_card_img">
-                  <img src="../resources/image/pet_sheltering_default.png" alt="보호소"/>
-                </a>
-                <a className="font_20 font_bold">보호소 이름</a>
-                <a>보호소 설명</a>
-              </li>
-              <li className="radius_15 list_card">
-                <a className="list_card_img">
-                  <img src="../resources/image/pet_sheltering_default.png" alt="보호소"/>
-                </a>
-                <a className="font_20 font_bold">보호소 이름</a>
-                <a>보호소 설명</a>
-              </li>
-              <li className="radius_15 list_card">
-                <a className="list_card_img">
-                  <img src="../resources/image/pet_sheltering_default.png" alt="보호소"/>
-                </a>
-                <a className="font_20 font_bold">보호소 이름</a>
-                <a>보호소 설명</a>
+          <div>
+            <ul style={{listStyle: 'none'}}>
+                {loading ? (
+                  <p>Loading...</p>
+                ) : (
+                  <ShelterList
+                    shelters={shelters}
+                    onClickItem={(item) => navigate(`/view/${item.id}`)}
+                  />
+                )}
+
+              <li>
+                <ul className="shelter_list">
+                  <li className="radius_15 list_card">
+                    <a className="list_card_img">
+                      <img src="../resources/image/pet_sheltering_default.png" alt="보호소"/>
+                    </a>
+                    <a className="font_20 font_bold">보호소 이름</a>
+                    <a>보호소 설명</a>
+                  </li>
+                  <li className="radius_15 list_card">
+                    <a className="list_card_img">
+                      <img src="../resources/image/pet_sheltering_default.png" alt="보호소"/>
+                    </a>
+                    <a className="font_20 font_bold">보호소 이름</a>
+                    <a>보호소 설명</a>
+                  </li>
+                  <li className="radius_15 list_card">
+                    <a className="list_card_img">
+                      <img src="../resources/image/pet_sheltering_default.png" alt="보호소"/>
+                    </a>
+                    <a className="font_20 font_bold">보호소 이름</a>
+                    <a>보호소 설명</a>
+                  </li>
+                </ul>
               </li>
             </ul>
-            <a className="direction">
-              <img src="../resources/image/right-arrow.png" alt="오른쪽이동"/>
-            </a>
           </div>
         </div>
 
