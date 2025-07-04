@@ -70,39 +70,13 @@ function Main(){
                     onClickItem={(item) => navigate(`/view/${item.id}`)}
                   />
                 )}
-
-              <li>
-                <ul className="shelter_list">
-                  <li className="radius_15 list_card">
-                    <a className="list_card_img">
-                      <img src="../resources/image/pet_sheltering_default.png" alt="보호소"/>
-                    </a>
-                    <a className="font_20 font_bold">보호소 이름</a>
-                    <a>보호소 설명</a>
-                  </li>
-                  <li className="radius_15 list_card">
-                    <a className="list_card_img">
-                      <img src="../resources/image/pet_sheltering_default.png" alt="보호소"/>
-                    </a>
-                    <a className="font_20 font_bold">보호소 이름</a>
-                    <a>보호소 설명</a>
-                  </li>
-                  <li className="radius_15 list_card">
-                    <a className="list_card_img">
-                      <img src="../resources/image/pet_sheltering_default.png" alt="보호소"/>
-                    </a>
-                    <a className="font_20 font_bold">보호소 이름</a>
-                    <a>보호소 설명</a>
-                  </li>
-                </ul>
-              </li>
             </ul>
           </div>
         </div>
 
         <div id="container_footer">
           <div className="detail_source">본 사이트에 이용된 아이콘들은 iconfinder와 flaticon,ICON8에 저작권이 있음을 알려드립니다.</div>
-          <div className="detail_source">제작자 @Gongdol_P</div>
+          <div className="detail_source" style={{paddingLeft:'1%'}}>제작자 @Gongdol_P</div>
         </div>
     </div>
  
