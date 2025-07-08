@@ -1,0 +1,84 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+.modalPop {
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 30vw;
+    max-height: 60vh;
+    animation: slideUp 0.4s ease forwards;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    padding: 15px;
+}
+/* 배경 페이드 인 */
+@keyframes fadeIn {
+    from {
+      background: rgba(0,0,0,0);
+    }
+    to {
+      background: rgba(0,0,0,0.5);
+    }
+  }
+  
+/* 모달 슬라이드 업 + 페이드 인 */
+@keyframes slideUp {
+    from {
+        transform: translate(-50%, -40%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+.icon_close {
+    float: right;
+    scale: 1.5;
+}
+#shelterName {
+    font-family: 'NeurimboGothic';
+    font-size: 30px;
+}
+.snsList {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0px;
+}
+.icon_sns {
+    scale: 1.5;
+    padding-left: 3px;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+.icon_sns.twitter {
+    color: #1DA1F2;
+}
+.icon_sns.instagram {
+    color: #E1306C;
+}
+.icon_sns.chrome {
+    color: #4285F4;
+}
+.icon_sns.linktree {
+    color: #43E660;
+}
+.icon_sns:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+.icon_copy {
+    cursor: pointer;
+}

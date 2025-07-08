@@ -1,12 +1,3 @@
-/* p기본의 마진들 전부 없는 걸로 처리 */
-p {margin: 0;}
-
-/* 공통? */
-.font_20 { font-size: 20px;}
-.font_25_vw { font-size: 2.5vw;}
-.font_bold { font-weight: bold;}
-.per_50_w { width: 50%;}
-
 /* 헤더 */
 #container_head {
     display: flex;
@@ -30,16 +21,6 @@ p {margin: 0;}
     margin-left: 5%;
 }
 
-.row_flex {
-    display: flex;
-    flex-direction: row;
-}
-
-.column_flex {
-    display: flex;
-    flex-direction: column;
-}
-
 .subtitle {
     font-family: 'NeurimboGothic';
     font-size: 35px;
@@ -56,10 +37,6 @@ p {margin: 0;}
     padding-left: 5%;
     padding-bottom: 2%;
     white-space: pre-wrap;
-}
-
-.radius_15 {
-    border-radius: 15px;
 }
 
 #midle_img {
