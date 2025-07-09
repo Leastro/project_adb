@@ -74,7 +74,7 @@ function DataSUD({ showDetail, shelters }){
         const querySnapshot = await getDocs(q);
 
         if (querySnapshot.empty) {
-            console.log("해당 보호소가 없습니다.");
+            alert("해당 보호소가 없습니다.");
             return;
         }
 
