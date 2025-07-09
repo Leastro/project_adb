@@ -5,11 +5,11 @@ import "../Main/Main.css"
 function ShelterList({ shelters, onClickItem }){
     const sheltersArray = [];
 
-    //입력한 보호소 정보를 3개씩 묶기.
-    //[[0,1,2],[3,4,5]] 형식으로 된다.
-    //3개씩 묶고 나서 또 묶어야 하기 때문에 증감에 3을 더한다.
-    for(var i=0 ; i< shelters.length ; i+=3){
-        sheltersArray.push(shelters.slice(i, i + 3));
+    //입력한 보호소 정보를 4개씩 묶기.
+    //[[0,1,2,3],[4,5]] 형식으로 된다.
+    //3개씩 묶고 나서 또 묶어야 하기 때문에 증감에 4을 더한다.
+    for(var i=0 ; i< shelters.length ; i+=4){
+        sheltersArray.push(shelters.slice(i, i + 4));
     }
     
     return (

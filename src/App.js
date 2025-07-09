@@ -4,14 +4,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 //page
 import Main from "./Main/Main";
-import Shelter_detail from "./shelter_detail/detail.jsx";
+import Registration from "./registration/registration.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route index element={<Main/>} />
-        <Route path='Shelter_detail/:postId' element={<Shelter_detail/>} />
+        <Route path='registration' element={<Registration/>} />
       </Routes>
     </BrowserRouter>
   );

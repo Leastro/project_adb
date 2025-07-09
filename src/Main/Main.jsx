@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Main.css"
 import { db } from '../firebase.js';
-import { collection, onSnapshot  } from "firebase/firestore";
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import ShelterList from "../components/Shelter_list.jsx"
 import ShelterInfo from "../shelter_detail/detail.jsx"
 import { MdCopyright } from "react-icons/md";
@@ -13,10 +13,9 @@ function Main(){
   const [selectedShelter, setSelectedShelter] = useState(null); //모달창 정보 전달
 
   useEffect(() => {
-    const shelterList = collection(db, 'shelter');
+    const shelterList = query(collection(db, 'shelter'),orderBy("id", "desc"));
 
-    const unsubscribe = onSnapshot(
-      shelterList, (snapshot) => {
+    const unsubscribe = onSnapshot(shelterList, (snapshot) => {
         const shelterData = snapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data()

@@ -4,7 +4,6 @@
      flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
-    height:25vh;
     background-color: #97dbae7d;
 }
 .title {
@@ -18,14 +17,15 @@
 /* 중간 소개 */
 .container_body {
     margin-top: 1%;
-    margin-left: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 .subtitle {
     font-family: 'NeurimboGothic';
     font-size: 35px;
     padding: 10px;
-    width: 95%;
+    width: 93vw;
     background: #f1e1a6;
     border: #ffff 5px solid;
     border-left: none;
@@ -86,7 +86,7 @@
 }
 
 .list_card {
-    width: 30%;
+    width: 23%;
     background: white;
     filter: drop-shadow(10px 10px 0px #c3e5ae);
     padding: 2.5%;

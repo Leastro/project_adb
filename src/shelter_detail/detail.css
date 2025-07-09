@@ -23,6 +23,11 @@
     opacity: 0;
     padding: 15px;
 }
+
+.modalPop.closing {
+    animation: slideDown 0.3s forwards;
+}
+
 /* 배경 페이드 인 */
 @keyframes fadeIn {
     from {
@@ -33,7 +38,7 @@
     }
   }
   
-/* 모달 슬라이드 업 + 페이드 인 */
+/* 모달 슬라이드 + 페이드 인 */
 @keyframes slideUp {
     from {
         transform: translate(-50%, -40%);
@@ -42,6 +47,17 @@
     to {
         transform: translate(-50%, -50%);
         opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+    to {
+        transform: translate(-50%, -40%);
+        opacity: 0;
     }
 }
 .icon_close {

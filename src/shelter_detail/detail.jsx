@@ -10,6 +10,7 @@ import { SiLinktree } from "react-icons/si";
 
 function Detail({shelters, onClose}){
     const [shelter, setShelter] = useState(null);
+    const [closing, setClosing] = useState(false);
     const shelterId = shelters;
 
     useEffect(() => {
@@ -29,13 +30,20 @@ function Detail({shelters, onClose}){
         navigator.clipboard.writeText(copyText);
         alert("복사되었습니다.");
     };
-    
+
+    const handleClose = () => {
+        setClosing(true); // 닫기 애니메이션 실행
+        setTimeout(() => {
+          onClose();       // Main에서 받은 닫기 함수 호출
+          setClosing(false); // 상태 초기화
+        }, 300); // 애니메이션 지속 시간과 동일
+      };
 
     return(
         <div className="overlay">
            {shelter ? (
-                <div className="modalPop radius_15">
-                    <IoIosCloseCircleOutline onClick={onClose} className="icon_close"/>
+                <div className={`modalPop radius_15 ${closing ? "closing" : ""}`}>
+                    <IoIosCloseCircleOutline onClick={handleClose} className="icon_close"/>
                     <span>
                         <p id="shelterName">{shelter.name}</p>
                         <p className="snsList">
