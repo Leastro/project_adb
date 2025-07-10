@@ -24,7 +24,7 @@ function ShelterList({ shelters, onClickItem }){
                                 <img src={"../resources/image/pet_sheltering_default.png"} alt="보호소" />
                             </a>
                             <a className="font_20 font_bold">{shelter.name || "보호소 이름"}</a>
-                            <a>{shelter.description || "보호소 설명"}</a>
+                            <a className="descOver">{shelter.description || "보호소 설명"}</a>
                         </li>
                     ))}
                 </ul>

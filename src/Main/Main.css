@@ -1,3 +1,7 @@
+.mainWrapper {
+    height:50vh;
+}
+
 /* 헤더 */
 #container_head {
     display: flex;
@@ -83,6 +87,7 @@
     padding-left: 0;
     width: 98%;
     margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 .list_card {
@@ -95,14 +100,44 @@
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
+    height: 100%;
 }
 
 .list_card_img>img {
     width:100%;
 }
 
+.descOver {
+    white-space: nowrap; /* 줄 바꿈 방지 */
+    overflow: hidden;   /* 넘치는 내용 숨김 */
+    text-overflow: ellipsis; /* 말줄임표 적용 */
+    width: 100%; /* 원하는 너비 설정 */
+    text-align: center;
+    padding-top: 10px;
+    font-size: 13px;
+}
+
 /* 하단 */
 #container_footer {
     display: flex;
     justify-content: center;
+}
+
+.moreShow {
+    position: relative;
+    left: 43vw;
+    bottom: 20px;
+    width: 60px;
+    border: 0;
+    padding: 7px 17px;
+    display: inline-block;
+    text-align: center;
+    color: #ffffff;
+    background-color: #f1e1a6;
+    border-radius: 20px;
+    box-shadow: 0px 4px 0px #f4bbbb;
+    font-weight: bold;
+}
+.moreShow:active{
+    background-color: #f4bbbb;
 }

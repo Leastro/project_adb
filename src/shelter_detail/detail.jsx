@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./detail.css"
 import { db } from '../firebase.js';
-import { doc, getDoc  } from "firebase/firestore";
+import { doc, getDoc, getDocs, collection, query, where } from "firebase/firestore";
 import { FaTwitter , FaInstagramSquare } from "react-icons/fa";
 import { FaRegCopy, FaChrome } from "react-icons/fa6";
 import { IoIosCloseCircleOutline } from "react-icons/io";
@@ -15,12 +15,18 @@ function Detail({shelters, onClose}){
 
     useEffect(() => {
         const fetchShelter = async () => {
-          const docRef = doc(db, 'shelter', shelterId); // 문서 참조
-          const docSnap = await getDoc(docRef); // 문서 가져오기
+            const shelterRef = collection(db, "shelter");
+            const q = query(shelterRef, where("id", "==", shelterId));
 
-          if (docSnap.exists()) {
-            setShelter({ id: docSnap.id, ...docSnap.data() });
-          }
+            const querySnapshot = await getDocs(q);
+            console.log(querySnapshot)
+
+            if (!querySnapshot.empty) {
+                const doc = querySnapshot.docs[0]; // 첫 번째 문서
+                const data = { id: doc.id, ...doc.data() };
+                console.log(data);
+                setShelter(data);
+            }
         };
 
         fetchShelter();
@@ -52,11 +58,11 @@ function Detail({shelters, onClose}){
                             {shelter.site && <FaChrome className="icon_sns chrome" onClick={() => window.open(shelter.site, '_blank', 'noopener,noreferrer')}/>}
                             {shelter.linktree && <SiLinktree className="icon_sns linktree" onClick={() => window.open(shelter.linktree, '_blank', 'noopener,noreferrer')}/>}
                         </p>
-                        <p id="BankNum">후원계좌 : {shelter.banknum}
-                            &nbsp;<FaRegCopy className="icon_copy" onClick={() => handleCopy(shelter.banknum)}/>
+                        <p id="BankNum">후원계좌 : {shelter.bankNum}
+                            &nbsp;<FaRegCopy className="icon_copy" onClick={() => handleCopy(shelter.bankNum)}/>
                         </p>
-                        <p id="CallNum">대표연락처 : {shelter.callnum}
-                            &nbsp;<FaRegCopy className="icon_copy" onClick={() => handleCopy(shelter.callnum)}/>
+                        <p id="CallNum">대표연락처 : {shelter.callNum}
+                            &nbsp;<FaRegCopy className="icon_copy" onClick={() => handleCopy(shelter.callNum)}/>
                         </p>
                         <p>{shelter.description}</p>
                     </span>

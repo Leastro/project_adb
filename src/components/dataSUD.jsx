@@ -1,10 +1,9 @@
 //데이터 저장 삭제 수정 페이지
 import React, { useEffect, useState } from "react";
 import { db } from '../firebase.js';
-import { doc, getDocs, collection, addDoc, query, where, updateDoc, orderBy, limit } from "firebase/firestore";
+import { doc, getDocs, collection, addDoc, query, where, updateDoc, orderBy, limit, deleteDoc } from "firebase/firestore";
 
 function DataSUD({ showDetail, shelters }){
-    const [shelter, setShelter] = useState(null);
     const [lastId, setLastId] = useState(0);
     const shelterId = shelters; //목록에서 선택한 값
 
@@ -41,8 +40,7 @@ function DataSUD({ showDetail, shelters }){
                     setSite(data.site);
                     setDesc(data.description);
                   } else {
-                    console.log("해당 ID의 문서가 없습니다.");
-                    setShelter(null);
+                    alert("해당 ID의 문서가 없습니다.");
                   }
                 
             };
@@ -113,6 +111,15 @@ function DataSUD({ showDetail, shelters }){
         }else{
             //데이터 신규 추가
             try {
+                //보호소명 중복 체크
+                const shelterRef = collection(db, "shelter");
+                const q = query(shelterRef, where("name", "==", name));
+                const querySnapshot = await getDocs(q);
+
+                if (!querySnapshot.empty) {
+                    return alert("이미 등록된 보호소명입니다.");
+                }
+                
                 await addDoc(collection(db, 'shelter'), {
                     id: String(lastId + 1).padStart(4, "0"),
                     name: name,
@@ -143,8 +150,37 @@ function DataSUD({ showDetail, shelters }){
     };
 
     //데이터 삭제
-    const deleteData = () => {
+    const handleDel = () => {
+        deleteData(shelterId);
+    }
 
+    const deleteData = async (shelterId) => {
+        await deleteDoc(doc(db, "cities", "DC"));
+
+
+        const shelterRef = collection(db, "shelter");
+        const q = query(shelterRef, where("id", "==", shelterId));
+
+        const querySnapshot = await getDocs(q);
+
+        if (querySnapshot.empty) {
+            alert("해당 보호소가 없습니다.");
+            return;
+        }
+
+        querySnapshot.forEach(async (document) => {
+            const docRef = doc(db, "shelter", document.id); // 문서의 Firestore 고유 ID로 참조
+        
+            const confirm = window.confirm("해당 게시글을 삭제하시겠습니까?");
+            
+            if(confirm){
+                // 삭제 실행
+                await deleteDoc(docRef);
+                showDetail();
+
+                alert("보호소가 삭제되었습니다!");
+            }
+        });
     };
 
     return(
@@ -222,7 +258,7 @@ function DataSUD({ showDetail, shelters }){
                     </tr>
                 </tbody>
             </table>
-            <button className="delBtn" onClick={deleteData}>삭제</button>
+            <button className="delBtn" onClick={handleDel}>삭제</button>
             <button className="saveBtn" onClick={handleSave}>저장</button>
             <button className="clsBtn" onClick={showDetail}>닫기</button>
         </div>
