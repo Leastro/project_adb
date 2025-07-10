@@ -72,10 +72,12 @@ function Main(){
   const handleModalOpen = (item) => {
     setSelectedShelter(item);
     setModalOpen(true);
+    document.body.style.overflow = 'hidden';
   };
 
   const ModalClose = () => {
     setModalOpen(false);
+    document.body.style.overflow = 'auto';
   };
 
   const handleMoreData = () => {
