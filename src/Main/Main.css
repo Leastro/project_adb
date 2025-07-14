@@ -1,5 +1,5 @@
 .mainWrapper {
-    height:50vh;
+    height:100%;
 }
 
 /* 헤더 */
@@ -140,4 +140,67 @@
 }
 .moreShow:active{
     background-color: #f4bbbb;
+}
+
+@media (max-width : 900px) {
+    .title {
+        font-size : 10vw;
+    }
+
+    .subtitle {
+        font-size: 4.3vw;
+        width: 85vw;
+    }
+
+    #midle_img {
+        width: 97%;
+        margin-bottom: 3%;
+    }
+
+    .description {
+        padding-left: 1%;
+    }
+
+    .shelterList>ul {
+        padding-left:0px;
+    }
+
+    .shelter_list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .list_card {
+        width: 97%;
+        height: 7vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        box-sizing: border-box;
+        flex-wrap: nowrap;
+        margin: 0 1% 4% 1%;
+    }
+
+    .list_card_img {
+        width: 115px;
+    }
+
+    .shelterNm {
+        width: 300px;;
+    }
+
+    .moreShow {
+        left: 35vw;
+        bottom: 14px;
+    }
+
+    .descOver {
+        padding-top: 0;
+    }
+
+    .detail_source {
+        font-size: 7px;
+    }
 }

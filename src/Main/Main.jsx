@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useMediaQuery } from '@mui/material';
 import "./Main.css"
 import { db } from '../firebase.js';
 import { collection, getDocs, query, orderBy, limit, startAfter } from "firebase/firestore";
@@ -12,6 +13,8 @@ function Main(){
   const [modalOpen, setModalOpen] = useState(false); //모달창 온오픈
   const [selectedShelter, setSelectedShelter] = useState(null); //모달창 정보 전달
   const [lastVisible, setLastVisible] = useState(null); // 마지막 문서 저장
+
+  const isMobi = useMediaQuery('(max-width:900px)'); //모바일 체크용
 
   //맨 처음 보호소 목록 불러오기
   useEffect(() => {
@@ -98,14 +101,14 @@ function Main(){
           <span role="img" aria-label="rabbit">🐇</span>
         </div>
           
-        <div className="row_flex">
-          <span id="midle_img">
+        <div className={isMobi ? 'column_flex' : 'row_flex'}>
+          <span id= "midle_img">
             <img src="../resources/image/고성신문 출저.jpg" alt="보호소"  className="radius_15"/>
             <span className="detail_source"><MdCopyright />{`사진출저 : 고성신문-고성군유기동물보호소 두 달, 변화의 시작`}</span>
           </span>
-          <div className="column_flex per_50_w">
-            <p className="description font_25_vw font_bold">{`모든 동물들은 사랑받을 권리가 있습니다.`}</p>
-            <p className="description font_20">{`이러한 권리를 위해 가족을 찾는 유기동물들을 보호하는\n개인, 중·소규모 유기동물보호소를 소개합니다.`}</p>
+          <div className={isMobi ? 'column_flex per_100_w' : 'column_flex per_50_w'}>
+            <p className={isMobi ? 'description font_bold font_5_vw' : 'description font_bold font_25_vw'}>{`모든 동물들은 사랑받을 권리가 있습니다.`}</p>
+            <p className={isMobi ? 'description font_4_vw' : 'description font_20'}>{`이러한 권리를 위해 가족을 찾는 유기동물들을 보호하는\n개인, 중·소규모 유기동물보호소를 소개합니다.`}</p>
           </div>
         </div>
 
@@ -118,10 +121,11 @@ function Main(){
               ) : (
                 <ShelterList
                   shelters={shelters}
+                  mobi={isMobi}
                   onClickItem={handleModalOpen}/>
               )}
           </ul>
-          <div className="moreShow" onClick={handleMoreData}>+더보기</div>
+          <div className="moreShow" onClick={handleMoreData}>+ 더보기</div>
         </div>
       </div>
       {modalOpen && <ShelterInfo shelters={selectedShelter} onClose={ModalClose}/>}

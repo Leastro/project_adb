@@ -98,3 +98,9 @@
 .icon_copy {
     cursor: pointer;
 }
+
+@media (max-width : 900px) {
+    .modalPop {
+        width: 75vw;
+    }
+}

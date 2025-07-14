@@ -2,7 +2,7 @@ import React from "react";
 import "../Main/Main.css"
 //import InfiniteScroll from 'react-infinite-scroll-component';
 
-function ShelterList({ shelters, onClickItem }){
+function ShelterList({ shelters, mobi, onClickItem }){
     const sheltersArray = [];
 
     //입력한 보호소 정보를 4개씩 묶기.
@@ -23,7 +23,7 @@ function ShelterList({ shelters, onClickItem }){
                             <a className="list_card_img">
                                 <img src={"../resources/image/pet_sheltering_default.png"} alt="보호소" />
                             </a>
-                            <a className="font_20 font_bold">{shelter.name || "보호소 이름"}</a>
+                            <a className={mobi ? 'font_2_vw font_bold shelterNm' : 'font_20 font_bold'}>{shelter.name || "보호소 이름"}</a>
                             <a className="descOver">{shelter.description || "보호소 설명"}</a>
                         </li>
                     ))}
