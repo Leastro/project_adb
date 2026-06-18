@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# 🐾 ADB (Adopt Don't Buy) - 사지 말고 입양하세요
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> **React와 Firebase를 활용하여 기획부터 배포까지 1인 단독 수행한 유기동물 보호소 정보 플랫폼입니다.**
+> 모던 프론트엔드 실무 역량 확보와 소규모 유기동물 보호소의 정보 접근성 개선을 목적으로 진행한 비영리 서비스입니다.
 
-## Available Scripts
+🌐 **서비스 URL**: [https://dont-buy.firebaseapp.com](https://dont-buy.firebaseapp.com)  
+📅 **개발 기간**: 2025.06 ~ 2025.07 (1인 풀스택 개발)
 
-In the project directory, you can run:
+<br />
 
-### `npm start`
+## 🛠 기술 스택 (Tech Stack)
+- **Frontend**: React, JavaScript (ES6+)
+- **Backend / DB**: Firebase Firestore Cloud Database
+- **Deployment**: Firebase Hosting
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br />
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🌟 주요 구현 내용 및 기술적 해결
 
-### `npm test`
+### 1. 컴포넌트 기반 아키텍처 수립
+- UI를 기능 단위로 철저히 모듈화하고 재사용 가능한 공통 UI 컴포넌트를 설계하여 시스템 확장성 및 유지보수성 확보
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2. Firestore 기반 데이터 스키마 설계 및 예외 처리
+- 보호소, 후원 정보 등 3개 컬렉션 간의 관계를 효율적으로 정의
+- 네트워크 지연이나 데이터가 없는 빈 상황을 대비한 체계적인 예외 처리 로직 및 대안 UI(Fallback) 구현으로 안정적인 사용자 경험 제공
 
-### `npm run build`
+### 3. 사용자 중심 UX 흐름 설계
+- 유저 편의성을 극대화하기 위한 연락처 및 후원계좌 원클릭 복사 기능 구현
+- 외부 페이지로의 불필요한 이탈을 방지하고 서비스 체류 시간을 높이는 모달(Modal) 기반 상세 정보 뷰어 구현
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📈 프로젝트 성과
+- 기획, DB 설계, UI/UX 개발, Firebase Hosting 배포까지 전 과정을 1인 완수하며 **React SPA 구조 및 Firebase 기반 서비스 개발 전체 사이클 경험 확보**
+- 레거시 환경에서 다진 예외 처리 노하우를 모던 웹 스택에 성공적으로 이식하여 **외부 데이터 품질 변화에 무너지지 않는 견고한 프론트엔드 구축 역량 검증**
